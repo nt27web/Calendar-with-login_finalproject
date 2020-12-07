@@ -51,16 +51,20 @@ CREATE TABLE IF NOT EXISTS app_users (
 );
 
 -- data population DML for 100 records
-/*
-INSERT INTO tblCities VALUES
-    (1,41,5,59,'N',80,39,0,'W','Youngstown','OH'),
-    (2,42,52,48,'N',97,23,23,'W','Yankton','SD'),
-    (3,46,35,59,'N',120,30,36,'W','Yakima','WA'),
-    (4,42,16,12,'N',71,48,0,'W','Worcester','MA'),
-    (5,43,37,48,'N',89,46,11,'W','Wisconsin Dells','WI'),
-    (6,36,5,59,'N',80,15,0,'W','Winston-Salem','NC'),
-    (7,49,52,48,'N',97,9,0,'W','Winnipeg','MB'),
-    (8,39,11,23,'N',78,9,36,'W','Winchester','VA'),
-    (9,34,14,24,'N',77,55,11,'W','Wilmington','NC'),
-    (10,39,45,0,'N',75,33,0,'W','Wilmington','DE'),
- ;*/
+
+INSERT INTO user_status VALUES
+    (1,'A','Active'),
+    (2,'I','Inactive')
+ ;
+
+INSERT INTO user_type VALUES
+    (1,'U','Regular User'),
+    (2,'A','Admin'),
+    (3,'S','Support')
+ ;
+
+INSERT INTO app_roles VALUES
+    (1,'U','Regular User'),
+    (2,'A','Admin'),
+    (3,'S','Support')
+ ;
