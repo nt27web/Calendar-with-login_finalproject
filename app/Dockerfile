@@ -3,17 +3,14 @@ FROM python:3
 #set envionment variables
 ENV PYTHONUNBUFFERED 1
 
-# run this before copying requirements for cache efficiency
-RUN pip install --upgrade pip
-
 EXPOSE 5000
 
+RUN pip install --upgrade pip
 WORKDIR /app
 
-COPY requirements.txt .
-
+#COPY requirements.txt /app
+ADD requirements.txt /app/
 RUN pip install -r requirements.txt
 
 COPY . /app
-
 CMD python app.py
