@@ -6,8 +6,8 @@ ENV PYTHONUNBUFFERED 1
 EXPOSE 5000
 
 RUN pip install --upgrade pip
-#COPY requirements.txt /app
-#ADD requirements.txt /app/
+
+copy requirements.txt /
 RUN pip install -r requirements.txt
 
 COPY . /app
