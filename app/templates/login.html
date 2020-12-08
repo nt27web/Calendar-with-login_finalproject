@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/login" method="POST">
+    <div class="row">
+        <div class="col">
+            <label for="login_name">User ID: </label>
+            <input id="login_name" type="text" class="form-control" placeholder="User ID" name="login_name">
+        </div>
+        <div class="col">
+            <label for="password">Password: </label>
+            <input id="password" type="password" class="form-control" placeholder="Password" name="password">
+        </div>
+    </div>
+
+    <div style="align-content: center">
+        <button type="submit" class="btn btn-success">Go</button>
+    </div>
+
+</form>
+
+{% endblock %}

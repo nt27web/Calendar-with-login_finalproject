@@ -5,10 +5,15 @@ ENV PYTHONUNBUFFERED 1
 
 EXPOSE 5000
 
+WORKDIR /app
+
 RUN pip install --upgrade pip
 
-copy requirements.txt /
+copy requirements.txt /app
+
 RUN pip install -r requirements.txt
 
 COPY . /app
+
 CMD python login_controller.py
+#CMD python rest_app.py

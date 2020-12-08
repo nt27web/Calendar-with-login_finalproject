@@ -14,7 +14,7 @@ app.config['MYSQL_DATABASE_DB'] = 'final_project_db'
 mysql.init_app(app)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def login_form() -> str:
     return render_template('login.html', title='Login')
 
@@ -23,13 +23,12 @@ def login_form() -> str:
 def login_submit() -> str:
     cursor = mysql.get_db().cursor()
     content = request.json
-    inputData = (content['login_name'], content['password'])
-    login_query = """SELECT count(1) FROM app_users where login_name = %s and password = %s """
+    inputData = (request.form.get('login_name'), request.form.get('password'))
+    login_query = """SELECT count(*) user_count FROM app_users where login_name = %s and password = %s """
     cursor.execute(login_query, inputData)
-    result = cursor.fetchall()
-    json_result = json.dumps(result);
-    if int(json_result) > 0:
-        return render_template('index.html', title='Home')
+    result = cursor.fetchone()
+    if int(int(result['user_count'])) > 0:
+        return render_template('calendar_home.html', title='Home')
     else:
         return render_template('login.html', title='Login')
 
