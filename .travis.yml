@@ -15,6 +15,10 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
+script:
+  #- python -m  unittest discover -s  Tests
+  - python3 login_controller.py
+
 branches:
   only:
     - main
