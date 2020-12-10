@@ -14,7 +14,7 @@ app.config['MYSQL_DATABASE_DB'] = 'final_project_db'
 mysql.init_app(app)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def login_form() -> str:
     return render_template('login.html', title='Login')
 
@@ -23,13 +23,12 @@ def login_form() -> str:
 def login_submit() -> str:
     cursor = mysql.get_db().cursor()
     content = request.json
-    inputData = (content['login_name'], content['password'])
-    login_query = """SELECT count(1) FROM app_users where login_name = %s and password = %s """
+    inputData = (request.form.get('login_name'), request.form.get('password'))
+    login_query = """SELECT count(*) user_count FROM app_users where email = %s and password = %s """
     cursor.execute(login_query, inputData)
-    result = cursor.fetchall()
-    json_result = json.dumps(result);
-    if int(json_result) > 0:
-        return render_template('index.html', title='Home')
+    result = cursor.fetchone()
+    if int(int(result['user_count'])) > 0:
+        return render_template('calendar_home.html', title='Home')
     else:
         return render_template('login.html', title='Login')
 
@@ -44,7 +43,7 @@ def reset_password_submit() -> str:
     cursor = mysql.get_db().cursor()
     content = request.json
     inputData = (content['login_name'], content['password'])
-    login_query = """SELECT count(1) FROM app_users where login_name = %s and password = %s """
+    login_query = """SELECT count(1) FROM app_users where email = %s and password = %s """
     cursor.execute(login_query, inputData)
     result = cursor.fetchall()
     json_result = json.dumps(result);
@@ -62,16 +61,14 @@ def form_sign_up():
 @app.route('/sign-up-submit', methods=['POST'])
 def sign_up_submit() -> str:
     cursor = mysql.get_db().cursor()
-    content = request.json
-    inputData = (content['login_name'], content['password'])
-    login_query = """SELECT count(1) FROM app_users where login_name = %s and password = %s """
-    cursor.execute(login_query, inputData)
-    result = cursor.fetchall()
-    json_result = json.dumps(result);
-    if int(json_result) > int(0):
-        return render_template('index.html', title='Home')
-    else:
-        return render_template('login.html', title='Login')
+    status_id = 1; # 1 for Active during create
+    inputData = (request.form.get('first_name'), request.form.get('last_name')
+                    , request.form.get('email_id'), request.form.get('password')
+                    , request.form.get('phone'), status_id)
+    sign_up_query = """INSERT INTO app_users (first_name,last_name,email,password,phone, status_id) VALUES (%s,%s,%s,%s,%s,%s) """
+    cursor.execute(sign_up_query, inputData)
+    mysql.get_db().commit()
+    return render_template('login.html', title='Login')
 
 
 
