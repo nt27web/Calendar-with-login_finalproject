@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/sign-up-submit" method="POST">
+    <div style="align-items: center; ;padding: 10px; border: 10px">
+        <div class="row">
+            <div class="col">
+                <label for="first_name">First Name: </label>
+                <input id="first_name" type="text" class="form-control" placeholder="User ID" name="first_name">
+            </div>
+            <div class="col">
+                <label for="last_name">Last Name: </label>
+                <input id="last_name" type="password" class="form-control" placeholder="Password" name="last_name">
+            </div>
+            <div class="col">
+                <label for="phone">Phone# </label>
+                <input id="phone" type="number" class="form-control" placeholder="Password" name="phone">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="email_id">User ID (Email Id): </label>
+                <input id="email_id" type="email" class="form-control" placeholder="User ID" name="email_id">
+            </div>
+            <div class="col">
+                <label for="password">Password: </label>
+                <input id="password" type="password" class="form-control" placeholder="Password" name="password">
+            </div>
+            <div class="col">
+                <label for="confirm_password">Password: </label>
+                <input id="confirm_password" type="password" class="form-control" placeholder="Confirm Password" name="confirm_password">
+            </div>
+        </div>
+
+        <div style="align-content: center">
+            <button type="submit" class="btn btn-success">Sign Up &gt; </button>
+        </div>
+        <div style="align-content: center">
+            <button type="reset" class="btn btn-reset">Reset</button>
+        </div>
+    </div>
+</form>
+
+<form action="/login" method="get">
+<div style="align-content: center">
+            <button type="submit" class="btn btn-cancel">Cancel</button>
+        </div>
+</form>
+
+{% endblock %}
