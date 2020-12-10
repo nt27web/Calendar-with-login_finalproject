@@ -40,14 +40,13 @@ CREATE TABLE IF NOT EXISTS user_address (
 
 CREATE TABLE IF NOT EXISTS app_users (
     `id` INT AUTO_INCREMENT,
-    `email` VARCHAR(10) CHARACTER SET utf8,
+    `email` VARCHAR(100) CHARACTER SET utf8,
     `password` VARCHAR(25) CHARACTER SET utf8,
     `first_name` VARCHAR(50) CHARACTER SET utf8,
     `last_name` VARCHAR(50) CHARACTER SET utf8,
-    `phone` VARCHAR(50) CHARACTER SET utf8,
+    `phone` VARCHAR(10) CHARACTER SET utf8,
     /*`role_id` INT not null references app_roles(id) ,*/
     /*`type_id` INT not null references user_type(id) ,*/
-
     `status_id` INT not null references user_status(id) ,
     /*`address_id` INT not null references user_address(id),*/
     PRIMARY KEY (`id`)
