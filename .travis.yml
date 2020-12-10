@@ -16,8 +16,8 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  #- python -m  unittest discover -s  Tests
-  - python3 /app/login_controller.py
+  - python -m  unittest discover -s  Tests
+  #- python3 /app/login_controller.py
 
 branches:
   only:
