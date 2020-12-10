@@ -13,7 +13,7 @@ copy requirements.txt /app
 
 RUN pip install -r requirements.txt
 
-COPY . /app
+COPY app /app
 
 CMD python login_controller.py
 #CMD python rest_app.py

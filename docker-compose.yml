@@ -1,7 +1,7 @@
 version: "2"
 services:
   app:
-    build: ./app
+    build: ./
     container_name: "Flask_App"
     depends_on:
       - db
