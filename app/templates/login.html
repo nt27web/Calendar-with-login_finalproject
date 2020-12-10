@@ -1,21 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
+<div style="align-items: center; border: 10px;border: #4f4f96" >
 <form action="/login" method="POST">
-    <div class="row">
-        <div class="col">
-            <label for="login_name">User ID: </label>
-            <input id="login_name" type="text" class="form-control" placeholder="User ID" name="login_name">
+        <div class="row">
+            <label for="login_name"><b>User ID</b></label>
+            <input id="login_name" type="email" class="form-control" placeholder="Enter Email ID" name="login_name">
         </div>
-        <div class="col">
-            <label for="password">Password: </label>
-            <input id="password" type="password" class="form-control" placeholder="Password" name="password">
+        <div class="row">
+            <label for="password"><b>Password</b></label>
+            <input id="password" type="password" class="form-control" placeholder="Enter Password" name="password">
         </div>
-    </div>
-
-    <div style="align-content: center">
-        <button type="submit" class="btn btn-success">Go</button>
-    </div>
-
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <div class="col"/>
+            <div class="col"/>
+            <div class="col"/>
+            <div class="col">
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </div>
 </form>
+
+<form action="/signup" method="get" >
+    <div class="row">
+        <button type="submit" class="btn btn-info">Sign Up</button>
+    </div>
+</form>
+</div>
 
 {% endblock %}
