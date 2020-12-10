@@ -17,7 +17,7 @@ before_install:
 
 script:
   #- python -m  unittest discover -s  Tests
-  - python3 login_controller.py
+  - python3 /app/login_controller.py
 
 branches:
   only:
