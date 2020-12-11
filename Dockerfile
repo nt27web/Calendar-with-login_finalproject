@@ -15,5 +15,5 @@ RUN pip install -r requirements.txt
 
 COPY app /app
 
-CMD python login_controller.py
-#CMD python rest_app.py
+#CMD python login_controller.py
+CMD python calendar_controller.py

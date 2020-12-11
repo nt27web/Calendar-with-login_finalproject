@@ -3,21 +3,17 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Latitude</th>
-        <th scope="col">Longitude</th>
-        <th scope="col">City</th>
-        <th scope="col">State</th>
+        <th scope="col">Title</th>
+        <th scope="col">Start Time</th>
+        <th scope="col">End Time</th>
     </tr>
     </thead>
     <tbody>
-    {% for city in cities %}
+    {% for event in event_name %}
     <tr>
-        <td><a href="view/{{city.Id}}">{{city.Id}}</a></td>
-        <td>{{city.LatD}}&#176; {{city.LatM}}&#39; {{city.LatS}}&#34; {{city.NS}}</td>
-        <td>{{city.LonD}}&#176; {{city.LonM}}&#39; {{city.LonS}}&#34; {{city.EW}}</td>
-        <td>{{ city.City }}</td>
-        <td>{{ city.State }}</td>
+        <td>{{ event.title  }}</td>
+        <td>{{ event.start_event}}</td>
+        <td>{{ event.end_event}}</td>
     </tr>
     {% endfor %}
     </tbody>

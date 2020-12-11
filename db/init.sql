@@ -70,3 +70,16 @@ INSERT INTO app_roles VALUES
     (2,'A','Admin'),
     (3,'S','Support')
  ;*/
+
+ /* Calendar Database scripts */
+
+CREATE TABLE IF NOT EXISTS events (
+    `id` int AUTO_INCREMENT,
+    `title` VARCHAR(255) NOT NULL ,
+    `start_event` datetime NOT NULL,
+    `end_event` datetime NOT NULL,
+    PRIMARY KEY (`id`)
+);
+INSERT INTO events(title,start_event,end_event) VALUES
+    ('Hike','2020-12-10 13:00:00','2020-12-10 15:59:59'),
+    ('Travel','2020-12-13 13:00:00','2020-12-13 15:59:59');
