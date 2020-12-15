@@ -78,8 +78,9 @@ CREATE TABLE IF NOT EXISTS events (
     `title` VARCHAR(255) NOT NULL ,
     `start_event` datetime NOT NULL,
     `end_event` datetime NOT NULL,
+    `event_id` VARCHAR(255) ,
     PRIMARY KEY (`id`)
 );
-INSERT INTO events(title,start_event,end_event) VALUES
-    ('Hike','2020-12-10 13:00:00','2020-12-10 15:59:59'),
-    ('Travel','2020-12-13 13:00:00','2020-12-13 15:59:59');
+INSERT INTO events(title,start_event,end_event,event_id) VALUES
+    ('Hike','2020-12-10 13:00:00','2020-12-10 15:59:59','sacsdjk123'),
+    ('Travel','2020-12-13 13:00:00','2020-12-13 15:59:59','');
