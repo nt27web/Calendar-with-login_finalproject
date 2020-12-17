@@ -34,7 +34,7 @@ def login_submit() -> str:
     cursor.execute(login_query, inputData)
     result = cursor.fetchone()
     if int(int(result['user_count'])) > 0:
-        return render_template('calendar_home.html', title='Home')
+        return render_template('index.html', title='Home')
     else:
         return render_template('login.html', title='Login')
 

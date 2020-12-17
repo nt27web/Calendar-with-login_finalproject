@@ -109,7 +109,7 @@ def index():
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM events')
     result = cursor.fetchall()
-    return render_template('index.html', title='Home', user=user, event_name=result)
+    return render_template('event_list.html', title='Home', user=user, event_name=result)
 
 
 @app.route('/view/<int:event_id>', methods=['GET'])

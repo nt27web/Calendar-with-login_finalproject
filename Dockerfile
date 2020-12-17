@@ -4,16 +4,13 @@ FROM python:3
 ENV PYTHONUNBUFFERED 1
 
 EXPOSE 5000
+# RUN pip install --upgrade pip
 
-WORKDIR /app
-
-RUN pip install --upgrade pip
-
+WORKDIR /
 copy requirements.txt .
-
 RUN pip install -r requirements.txt
 
-COPY app /app
-
-#CMD python login_controller.py
-CMD python calendar_controller.py
+WORKDIR /app
+copy app /app
+CMD python login_controller.py
+# & calendar_controller.py
