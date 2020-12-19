@@ -48,6 +48,10 @@ CREATE TABLE IF NOT EXISTS app_users (
     /*`role_id` INT not null references app_roles(id) ,*/
     /*`type_id` INT not null references user_type(id) ,*/
     `status_id` INT not null references user_status(id) ,
+    `confirmed` INT DEFAULT 0,
+    `confirmed_on` TIMESTAMP NULL DEFAULT NULL,
+    `created_on` TIMESTAMP NULL DEFAULT NULL,
+    `updated_on` TIMESTAMP NULL DEFAULT NULL,
     /*`address_id` INT not null references user_address(id),*/
     PRIMARY KEY (`id`)
 );
