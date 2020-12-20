@@ -1,5 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
+{% if message %}
+            <div style="width: available; horiz-align: center ">
+                <label>{{ message.message }}</label>
+            </div>
+        {% endif %}
 <table class="table">
     <thead>
     <tr>

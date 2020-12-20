@@ -12,6 +12,7 @@ from google.auth.transport.requests import Request
 from datetime import datetime, timedelta
 import googleapiclient
 
+
 app = Flask(__name__)
 mysql = MySQL(cursorclass=DictCursor)
 
@@ -103,8 +104,8 @@ def delete_event(value):
     print("Event deleted")
 
 
-@app.route('/', methods=['GET'])
-def index():
+@app.route('/event', methods=['GET'])
+def get_all_events():
     user = {'username': 'Calendar Project'}
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM events')
@@ -222,7 +223,7 @@ def api_edit(event_id) -> str:
     content = request.json
     inputData = (content['title'], content['start_event'], content['end_event'],
                  event_id)
-    sql_update_query = """UPDATE events t SET t.title = %s, t.start_event = %s, t.end_event = %s, WHERE t.id = %s """
+    sql_update_query = """UPDATE events t SET t.title = %s, t.start_event = %s, t.end_event = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')

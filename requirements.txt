@@ -9,3 +9,5 @@ mysql.connector
 Flask-EmailVerifier
 flask_mail
 itsdangerous
+pymysql
+google

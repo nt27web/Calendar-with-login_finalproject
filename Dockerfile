@@ -1,5 +1,7 @@
 FROM python:3
 
+RUN apt-get update -y
+
 #set envionment variables
 ENV PYTHONUNBUFFERED 1
 
@@ -7,10 +9,11 @@ EXPOSE 5000
 # RUN pip install --upgrade pip
 
 WORKDIR /
-copy requirements.txt .
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+
 WORKDIR /app
-copy app /app
-CMD python login_controller.py
-# & calendar_controller.py
+COPY app /app
+
+CMD python app.py
